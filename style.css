@@ -1,0 +1,195 @@
+:root{
+  --bg:#faf7f4;
+  --card:#ffffff;
+  --accent:#b72b2b; /* merah hangat */
+  --muted:#8b8b8b;
+  --radius:18px;
+  --paper-texture: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200"><rect width="100%" height="100%" fill="%23fffaf8"/><path d="M0 30c50-30 150 10 200 0v10c-40 10-160-40-200 0z" fill="%23f6f2ee" opacity="0.4"/></svg>');
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: "Quicksand", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:#222;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:24px;
+}
+
+/* frame */
+.frame{
+  width:100%;
+  max-width:1100px;
+  height:80vh;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+  box-shadow:0 20px 40px rgba(0,0,0,0.18);
+  background-image: var(--paper-texture);
+  background-size:cover;
+  padding:28px;
+}
+
+/* slide base */
+.slide{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:28px;
+  transform:translateY(10px);
+  opacity:0;
+  transition:all .45s cubic-bezier(.2,.9,.3,1);
+  pointer-events:none;
+}
+.slide.active{
+  transform:none;
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* card */
+.card{
+  background:var(--card);
+  border-radius:20px;
+  padding:28px;
+  width:100%;
+  max-width:760px;
+  text-align:center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  border:2px solid rgba(183,43,43,0.06);
+}
+
+/* wide card */
+.card.wide{max-width:940px;}
+
+/* typography */
+.cute-icon{
+  font-size:36px;
+  opacity:.9;
+}
+.title{
+  font-family: "Pacifico", cursive;
+  font-size:44px;
+  margin:10px 0 4px;
+  color:#222;
+}
+.title .accent{
+  color:var(--accent);
+  font-weight:700;
+}
+
+.subtitle{
+  color:var(--muted);
+  margin-bottom:18px;
+  text-transform:lowercase;
+  letter-spacing:.6px;
+}
+
+/* buttons */
+.btn-row{display:flex;gap:14px;justify-content:center;margin-top:18px;flex-wrap:wrap;}
+.btn{
+  padding:12px 22px;
+  border-radius:999px;
+  font-weight:600;
+  border:2px solid rgba(0,0,0,0.06);
+  cursor:pointer;
+  background:transparent;
+  transition:transform .14s ease, box-shadow .14s;
+}
+.btn:active{transform:translateY(2px)}
+.btn.primary{
+  background:linear-gradient(180deg, #ffefef, #ffdfe0);
+  color:var(--accent);
+  border:2px solid rgba(183,43,43,0.14);
+  box-shadow:0 6px 18px rgba(183,43,43,0.08);
+}
+.btn.ghost{
+  background:transparent;
+  color:var(--accent);
+  border:2px solid rgba(183,43,43,0.18);
+}
+
+/* choices grid */
+.grid-choices{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+  margin-top:12px;
+}
+.choice{
+  padding:18px;
+  border-radius:16px;
+  border:2px dashed rgba(183,43,43,0.12);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  cursor:pointer;
+  background:linear-gradient(180deg,#fff,#fff);
+}
+.choice-ico{font-size:34px}
+.choice-label{font-weight:700;color:var(--accent)}
+
+/* gallery */
+/* Gallery */
+.gallery {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+
+/* Foto bulat lucu */
+.photo {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover; /* biar foto tetap proporsional */
+  border: 5px solid #ffb6c1; /* bingkai pink lembut */
+  box-shadow: 0 6px 15px rgba(255, 182, 193, 0.4); /* efek glow lembut */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+/* Efek hover (kalau kursor diarahkan ke foto) */
+.photo:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(255, 150, 170, 0.5);
+}
+.photo-inner{color:var(--muted)}
+.photo-inner{color:var(--muted)}
+
+/* flower and poem */
+.flower-area{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.flower-art{font-size:56px}
+.praises{list-style:none;padding:0;margin:0;max-width:520px;text-align:left}
+.praises li{background:linear-gradient(90deg, rgba(183,43,43,0.03), transparent);padding:10px 12px;margin-bottom:8px;border-radius:10px;color:#444}
+
+/* poem/message style */
+.poem{font-style:italic;color:#333;line-height:1.6;text-align:left;padding:10px 8px}
+.message-text{text-align:left;line-height:1.6;color:#333;}
+
+/* small */
+.section-title{color:var(--accent);font-weight:800;letter-spacing:1px;margin:0 0 8px;font-size:20px}
+.big-text{font-size:28px;color:#333;margin:8px 0 16px}
+
+/* responsive */
+@media (max-width:700px){
+  .frame{height:86vh;padding:16px}
+  .card{padding:18px}
+  .title{font-size:34px}
+  .gallery{gap:8px}
+  .photo{width:120px;height:90px}
+  .grid-choices{grid-template-columns:repeat(2,1fr)}
+}
